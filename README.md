@@ -14,6 +14,18 @@ This is a **portfolio-level AI engineering project** that demonstrates deep unde
 
 **Not** a simple chatbot UI. The focus is on **retrieval quality**, **code understanding**, and **explainability**.
 
+<img width="1916" height="1026" alt="Screenshot 2026-08-21 144917" src="https://github.com/user-attachments/assets/1da1e79b-2940-422c-bbc4-f8f67442c066" />
+
+
+<img width="1902" height="978" alt="Screenshot 2026-08-21 144926" src="https://github.com/user-attachments/assets/c7d129ba-8711-4771-bef7-519a2b67e93d" />
+
+
+<img width="1917" height="967" alt="Screenshot 2026-08-21 144954" src="https://github.com/user-attachments/assets/de0602f5-d284-4c39-a0fb-4d20cbce72b2" />
+
+
+<img width="1917" height="971" alt="Screenshot 2026-08-21 145002" src="https://github.com/user-attachments/assets/22e02435-4bbf-433d-b8f9-a692da674c9e" />
+
+
 <img width="1917" height="972" alt="Screenshot 2026-08-21 145009" src="https://github.com/user-attachments/assets/c65c8336-07f8-45f9-aae9-9d9c0987cad0" />
 
 ## 🏗️ Architecture
