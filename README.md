@@ -28,44 +28,6 @@ This is a **portfolio-level AI engineering project** that demonstrates deep unde
 
 <img width="1917" height="972" alt="Screenshot 2026-08-21 145009" src="https://github.com/user-attachments/assets/c65c8336-07f8-45f9-aae9-9d9c0987cad0" />
 
-## 🏗️ Architecture
-
-### High-Level Data Flow
-
-```
-User Codebase
-    ↓
-[INGESTION PIPELINE]
-  - Repository Scanner
-  - Language Detection (Python, Java, JS, TS, C++, Go)
-  - AST Parsing (tree-sitter)
-  - Semantic Chunking (functions, classes, methods)
-  - Metadata Extraction
-  - Embedding Generation
-  ↓
-[VECTOR STORE & INDICES]
-  - Qdrant (semantic search)
-  - BM25 (keyword search)
-  - PostgreSQL (metadata)
-  ↓
-User Query
-    ↓
-[RETRIEVAL PIPELINE]
-  - Query Processing & Classification
-  - Parallel: Vector Search + BM25 Search
-  - Result Fusion (Reciprocal Rank Fusion)
-  - Reranking (Cross-Encoder)
-  - Context Assembly
-  ↓
-[GENERATION]
-  - Prompt Construction
-  - LLM Generation (GPT-4 / Claude)
-  - Citation Extraction
-  - Hallucination Detection
-  ↓
-Grounded Response with Citations
-```
-
 ## 🔑 Key Components
 
 ### 1. Ingestion Pipeline (`backend/app/ingestion/`)
