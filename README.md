@@ -14,6 +14,8 @@ This is a **portfolio-level AI engineering project** that demonstrates deep unde
 
 **Not** a simple chatbot UI. The focus is on **retrieval quality**, **code understanding**, and **explainability**.
 
+<img width="1917" height="972" alt="Screenshot 2026-08-21 145009" src="https://github.com/user-attachments/assets/c65c8336-07f8-45f9-aae9-9d9c0987cad0" />
+
 ## 🏗️ Architecture
 
 ### High-Level Data Flow
@@ -66,10 +68,6 @@ Grounded Response with Citations
 - **Metadata Extractor**: Extract imports, dependencies, symbols
 - **Embedding Generator**: Create dense vectors for semantic search
 
-**Why this matters:**
-- Naive chunking (fixed-size windows) loses code structure
-- Semantic chunks preserve context and improve retrieval accuracy
-- Metadata enables filtering and dependency-aware retrieval
 
 ### 2. Hybrid Retrieval (`backend/app/retrieval/`)
 
@@ -109,34 +107,8 @@ Hybrid (Vector + BM25): Recall@5 = 84%
 Hybrid + Reranker:      Recall@5 = 91%
 ```
 
-### 3. Query Processing (`backend/app/retrieval/query_processor.py`)
 
-**Problem Solved:** Understand user intent and expand queries for better retrieval
-
-**Features:**
-- **Query Classification**: Detect query type (code_search, architecture, debugging, etc.)
-- **Keyword Extraction**: Identify important terms
-- **Entity Recognition**: Extract class/function names
-- **Semantic Expansion**: Generate synonyms and related terms
-- **Query Decomposition**: Break complex queries into subqueries
-
-**Example:**
-```
-Input:  "How does authentication work?"
-
-Output:
-  Query Type: architecture
-  Keywords: [authentication, work, flow]
-  Entities: [AuthService, AuthController]
-  Subqueries: [
-    "Where is login handled?",
-    "Where are credentials validated?",
-    "Where is JWT generated?",
-    "How is authentication middleware configured?"
-  ]
-```
-
-### 4. Context Assembly (`backend/app/context/`)
+### 3. Context Assembly (`backend/app/context/`)
 
 **Problem Solved:** Prepare optimal context for LLM without exceeding token limits
 
@@ -367,19 +339,6 @@ docker-compose up -d
 - No inter-repository data leakage
 - Secure deletion on repository removal
 
-## 📈 Scalability & Performance
-
-### Optimizations
-- **Parallel Retrieval**: Vector + BM25 searches run concurrently
-- **Batch Embedding**: Process chunks in batches (32) for efficiency
-- **Caching**: Cache embeddings, query results, LLM responses
-- **Incremental Indexing**: Only re-index changed files
-
-### Benchmarks (Single Repository, 3,400 Chunks)
-- Indexing: ~15 minutes
-- Query (retrieval only): ~150ms
-- Query (with LLM): ~350ms (including 228ms LLM latency)
-- Memory: ~2GB (Qdrant + embeddings)
 
 ## 🧪 Testing & Evaluation
 
@@ -441,65 +400,4 @@ codebase-rag/
 └── docker-compose.yml
 ```
 
-## 🎓 Learning Resources
 
-### Key Concepts Demonstrated
-
-1. **Embedding Models** - Dense vector representations of code
-2. **Vector Databases** - Efficient similarity search
-3. **BM25 Algorithm** - Classic information retrieval
-4. **Reciprocal Rank Fusion** - Combining multiple rankers
-5. **Cross-Encoders** - Learning-to-rank for reranking
-6. **Prompt Engineering** - Eliciting grounded responses
-7. **AST Parsing** - Understanding code structure
-8. **Semantic Chunking** - Preserving code context
-9. **Evaluation Metrics** - Measuring RAG quality
-10. **Production RAG** - Building enterprise-ready systems
-
-### Papers & References
-
-- "[Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)" - Comprehensive RAG overview
-- "[Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906)" - DPR / dense retrieval
-- "[Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods](https://dl.acm.org/doi/10.1145/1571941.1572114)" - RRF
-- "[Cross-Encoders](https://www.sbert.net/examples/applications/cross-encoders/)" - Sentence BERT
-
-## 💡 Why This Project Stands Out
-
-### What Makes It Portfolio-Worthy
-
-1. **Not a Chatbot Template** - Sophisticated RAG engineering, not UI polish
-2. **Production-Grade** - Clean architecture, abstractions, modularity
-3. **Comprehensive Evaluation** - Metrics, benchmarking, strategy comparison
-4. **Explainability** - RAG Inspector shows every pipeline step
-5. **Code Understanding** - AST-based parsing, dependency graphs
-6. **Hybrid Retrieval** - Combines vector + BM25 + reranking
-7. **Security** - Handles untrusted repositories safely
-8. **Scalability** - Designed for large codebases (10K+ files)
-
-### Technical Depth
-
-- Demonstrates understanding of IR fundamentals (BM25, TF-IDF)
-- Shows ML knowledge (embeddings, cross-encoders, ranking)
-- Proves software engineering (APIs, async, modularity)
-- Exhibits system design (ingestion, retrieval, generation pipelines)
-
-## 🔮 Future Enhancements
-
-- [ ] Multi-language support expansion (Ruby, PHP, Kotlin)
-- [ ] Fine-tuned code embeddings (CodeBERT on company's codebase)
-- [ ] Knowledge graph construction (symbol relationships)
-- [ ] Incremental indexing (only re-embed changed files)
-- [ ] Query result caching (Redis)
-- [ ] A/B testing framework (online evaluation)
-- [ ] Conversation summarization (context retention)
-- [ ] Code modification suggestions
-- [ ] Multi-repository federated search
-- [ ] Streaming generation with token streaming
-
-## 📞 Support
-
-This project is designed as a portfolio demonstration. For questions about specific components, refer to the code comments and architecture document.
-
----
-
-**Built as a demonstration of RAG engineering expertise for AI/ML + full-stack roles.**
