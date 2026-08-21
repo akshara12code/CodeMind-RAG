@@ -1,0 +1,33 @@
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Data Validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.23
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# ML & Embeddings (Compatible versions)
+torch==2.13.0
+sentence-transformers>=2.2.0
+transformers>=4.30.0
+huggingface-hub>=0.19.3
+numpy==1.26.0
+
+# Search
+rank-bm25==0.2.2
+httpx==0.25.1
+
+# LLM APIs
+openai==1.3.0
+anthropic==0.7.8
+
+# Utilities
+python-dateutil==2.8.2
+aiofiles==23.2.1
